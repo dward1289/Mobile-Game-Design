@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F423839118C53DBF007A10EC"
+               BlueprintIdentifier = "F4F4F30118C565F300879CA8"
                BuildableName = "libObjectiveChipmunk.a"
                BlueprintName = "ObjectiveChipmunk"
-               ReferencedContainer = "container:VaultHacker.xcodeproj">
+               ReferencedContainer = "container:YellowCar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F423837A18C53DBF007A10EC"
-               BuildableName = "VaultHacker.app"
-               BlueprintName = "VaultHacker"
-               ReferencedContainer = "container:VaultHacker.xcodeproj">
+               BlueprintIdentifier = "F4F4F2EA18C565F300879CA8"
+               BuildableName = "YellowCar.app"
+               BlueprintName = "YellowCar"
+               ReferencedContainer = "container:YellowCar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F423837A18C53DBF007A10EC"
-            BuildableName = "VaultHacker.app"
-            BlueprintName = "VaultHacker"
-            ReferencedContainer = "container:VaultHacker.xcodeproj">
+            BlueprintIdentifier = "F4F4F2EA18C565F300879CA8"
+            BuildableName = "YellowCar.app"
+            BlueprintName = "YellowCar"
+            ReferencedContainer = "container:YellowCar.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F423837A18C53DBF007A10EC"
-            BuildableName = "VaultHacker.app"
-            BlueprintName = "VaultHacker"
-            ReferencedContainer = "container:VaultHacker.xcodeproj">
+            BlueprintIdentifier = "F4F4F2EA18C565F300879CA8"
+            BuildableName = "YellowCar.app"
+            BlueprintName = "YellowCar"
+            ReferencedContainer = "container:YellowCar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F423837A18C53DBF007A10EC"
-            BuildableName = "VaultHacker.app"
-            BlueprintName = "VaultHacker"
-            ReferencedContainer = "container:VaultHacker.xcodeproj">
+            BlueprintIdentifier = "F4F4F2EA18C565F300879CA8"
+            BuildableName = "YellowCar.app"
+            BlueprintName = "YellowCar"
+            ReferencedContainer = "container:YellowCar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,6 +1,6 @@
 //
 //  IntroScene.m
-//  VaultHacker
+//  YellowCar
 //
 //  Created by Devona Ward on 3/3/14.
 //  Copyright Devona Ward 2014. All rights reserved.
@@ -9,8 +9,7 @@
 
 // Import the interfaces
 #import "IntroScene.h"
-#import "HelloWorldScene.h"
-#import "NewtonScene.h"
+#import "Main.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - IntroScene
@@ -40,25 +39,18 @@
     [self addChild:background];
     
     // Hello world
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Chalkduster" fontSize:36.0f];
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Yellow Car" fontName:@"Chalkduster" fontSize:36.0f];
     label.positionType = CCPositionTypeNormalized;
-    label.color = [CCColor redColor];
+    label.color = [CCColor yellowColor];
     label.position = ccp(0.5f, 0.5f); // Middle of screen
     [self addChild:label];
     
     // Spinning scene button
-    CCButton *spinningButton = [CCButton buttonWithTitle:@"[ Simple Sprite ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    CCButton *spinningButton = [CCButton buttonWithTitle:@"[ Start ]" fontName:@"Verdana-Bold" fontSize:18.0f];
     spinningButton.positionType = CCPositionTypeNormalized;
     spinningButton.position = ccp(0.5f, 0.35f);
     [spinningButton setTarget:self selector:@selector(onSpinningClicked:)];
     [self addChild:spinningButton];
-
-    // Next scene button
-    CCButton *newtonButton = [CCButton buttonWithTitle:@"[ Newton Physics ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    newtonButton.positionType = CCPositionTypeNormalized;
-    newtonButton.position = ccp(0.5f, 0.20f);
-    [newtonButton setTarget:self selector:@selector(onNewtonClicked:)];
-    [self addChild:newtonButton];
 	
     // done
 	return self;
@@ -75,13 +67,6 @@
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
 }
 
-- (void)onNewtonClicked:(id)sender
-{
-    // start newton scene with transition
-    // the current scene is pushed, and thus needs popping to be brought back. This is done in the newton scene, when pressing back (upper left corner)
-    [[CCDirector sharedDirector] pushScene:[NewtonScene scene]
-                            withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
-}
 
 // -----------------------------------------------------------------------
 @end

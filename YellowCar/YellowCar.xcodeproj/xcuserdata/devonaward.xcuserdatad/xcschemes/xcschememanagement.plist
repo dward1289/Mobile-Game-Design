@@ -9,7 +9,7 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>VaultHacker.xcscheme</key>
+		<key>YellowCar.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>F423837A18C53DBF007A10EC</key>
+		<key>F4F4F2EA18C565F300879CA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F423839118C53DBF007A10EC</key>
+		<key>F4F4F30118C565F300879CA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

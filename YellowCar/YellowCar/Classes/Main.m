@@ -7,9 +7,8 @@
 //
 // -----------------------------------------------------------------------
 
-#import "HelloWorldScene.h"
 #import "IntroScene.h"
-#import "NewtonScene.h"
+#import "Main.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
@@ -17,7 +16,7 @@
 
 @implementation HelloWorldScene
 {
-    CCPhysicsNode *thePhysics;
+    
 }
 
 // -----------------------------------------------------------------------
@@ -44,19 +43,13 @@
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
     [self addChild:background];
     
-    thePhysics = [CCPhysicsNode node];
-    thePhysics.gravity = ccp(0,0);
-    thePhysics.debugDraw = YES;
-    thePhysics.collisionDelegate = self;
-    [self addChild:thePhysics];
-    
     // Create a back button
     CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
     backButton.positionType = CCPositionTypeNormalized;
     backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
-
+    
     // done
 	return self;
 }
@@ -77,9 +70,7 @@
     
     //Position of red car to drive
     redCar.position = CGPointMake(self.contentSize.width + redCar.contentSize.width/2, randomY);
-    redCar.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, redCar.contentSize} cornerRadius:0]; // 1
-    redCar.physicsBody.collisionGroup = @"redCarGroup"; // 2
-    [thePhysics addChild:redCar];
+    [self addChild:redCar];
     
     //Speed of the red car
     int minDuration = 3.0;
@@ -95,7 +86,7 @@
     //Removes the red car from the display
     CCAction *actionRemove = [CCActionRemove action];
     [redCar runAction:[CCActionSequence actionWithArray:@[actionMove,actionRemove]]];
-
+    
 }
 //Gets the blue car and makes it move
 - (void)addBlueCar:(CCTime)dt {
@@ -250,10 +241,6 @@
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:1.0f]];
 }
 
-- (void)onNewtonClicked:(id)sender
-{
-    [[CCDirector sharedDirector] pushScene:[NewtonScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
-}
 
 // -----------------------------------------------------------------------
 @end

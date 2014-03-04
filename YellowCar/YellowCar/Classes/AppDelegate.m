@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  VaultHacker
+//  YellowCar
 //
 //  Created by Devona Ward on 3/3/14.
 //  Copyright Devona Ward 2014. All rights reserved.
@@ -9,7 +9,7 @@
 
 #import "AppDelegate.h"
 #import "IntroScene.h"
-#import "HelloWorldScene.h"
+#import "Main.h"
 
 @implementation AppDelegate
 
