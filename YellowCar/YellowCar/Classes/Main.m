@@ -39,8 +39,9 @@
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
     
-    // Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
+    //Road background
+    CCSprite* background = [CCSprite spriteWithImageNamed:@"road.png"];
+    background.position = ccp(self.contentSize.width/2,self.contentSize.height/2);
     [self addChild:background];
     
     // Create a back button

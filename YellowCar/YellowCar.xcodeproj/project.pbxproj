@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F41CAC4018C77BE000E770DC /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = F41CAC3F18C77BE000E770DC /* road.png */; };
 		F4F4F2EF18C565F300879CA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F4F2EE18C565F300879CA8 /* QuartzCore.framework */; };
 		F4F4F2F118C565F300879CA8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F4F2F018C565F300879CA8 /* OpenGLES.framework */; };
 		F4F4F2F318C565F300879CA8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F4F2F218C565F300879CA8 /* OpenAL.framework */; };
@@ -237,6 +238,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F41CAC3F18C77BE000E770DC /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		F4F4F2EB18C565F300879CA8 /* YellowCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YellowCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F4F2EE18C565F300879CA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F4F4F2F018C565F300879CA8 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -737,6 +739,7 @@
 		F4F4F30618C565F300879CA8 /* YellowCar */ = {
 			isa = PBXGroup;
 			children = (
+				F41CAC3F18C77BE000E770DC /* road.png */,
 				F4F4F5C418C5662B00879CA8 /* Cars */,
 				F4F4F30718C565F300879CA8 /* Resources */,
 				F4F4F33018C565F300879CA8 /* Libraries */,
@@ -1689,6 +1692,7 @@
 				F4F4F5B318C565F600879CA8 /* newton-ipadhd.png in Resources */,
 				F4F4F30D18C565F300879CA8 /* Default-568h@2x.png in Resources */,
 				F4F4F32D18C565F300879CA8 /* iTunesArtwork in Resources */,
+				F41CAC4018C77BE000E770DC /* road.png in Resources */,
 				F4F4F5BB18C565F600879CA8 /* newton.png in Resources */,
 				F4F4F32818C565F300879CA8 /* Icon-Spotlight-iOS7.png in Resources */,
 				F4F4F31C18C565F300879CA8 /* Icon-76@2x.png in Resources */,
@@ -2045,6 +2049,7 @@
 				F4F4F5C018C565F600879CA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4F4F5C118C565F600879CA8 /* Build configuration list for PBXNativeTarget "YellowCar" */ = {
 			isa = XCConfigurationList;
@@ -2053,6 +2058,7 @@
 				F4F4F5C318C565F600879CA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
