@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F41CAC4018C77BE000E770DC /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = F41CAC3F18C77BE000E770DC /* road.png */; };
+		F4F1F42318C81CAA00D96499 /* car-honk-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F4F1F42218C81CAA00D96499 /* car-honk-1.wav */; };
+		F4F1F42518C821D500D96499 /* PT_383217_lowres.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */; };
 		F4F4F2EF18C565F300879CA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F4F2EE18C565F300879CA8 /* QuartzCore.framework */; };
 		F4F4F2F118C565F300879CA8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F4F2F018C565F300879CA8 /* OpenGLES.framework */; };
 		F4F4F2F318C565F300879CA8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F4F2F218C565F300879CA8 /* OpenAL.framework */; };
@@ -239,6 +241,8 @@
 
 /* Begin PBXFileReference section */
 		F41CAC3F18C77BE000E770DC /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		F4F1F42218C81CAA00D96499 /* car-honk-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "car-honk-1.wav"; sourceTree = "<group>"; };
+		F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PT_383217_lowres.mp3; sourceTree = "<group>"; };
 		F4F4F2EB18C565F300879CA8 /* YellowCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YellowCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F4F2EE18C565F300879CA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F4F4F2F018C565F300879CA8 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -739,6 +743,8 @@
 		F4F4F30618C565F300879CA8 /* YellowCar */ = {
 			isa = PBXGroup;
 			children = (
+				F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */,
+				F4F1F42218C81CAA00D96499 /* car-honk-1.wav */,
 				F41CAC3F18C77BE000E770DC /* road.png */,
 				F4F4F5C418C5662B00879CA8 /* Cars */,
 				F4F4F30718C565F300879CA8 /* Resources */,
@@ -1666,11 +1672,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4F4F30B18C565F300879CA8 /* Default@2x.png in Resources */,
+				F4F1F42318C81CAA00D96499 /* car-honk-1.wav in Resources */,
 				F4F4F31E18C565F300879CA8 /* Icon-120.png in Resources */,
 				F4F4F52218C565F600879CA8 /* LICENSE_CCBReader.txt in Resources */,
 				F4F4F5B518C565F600879CA8 /* newton-ipad.plist in Resources */,
 				F4F4F5B118C565F600879CA8 /* newton-ipadhd.plist in Resources */,
 				F4F4F31418C565F300879CA8 /* Icon@2x.png in Resources */,
+				F4F1F42518C821D500D96499 /* PT_383217_lowres.mp3 in Resources */,
 				F4F4F5CB18C5665000879CA8 /* Red.png in Resources */,
 				F4F4F32618C565F300879CA8 /* Icon-Small@2x.png in Resources */,
 				F4F4F5B918C565F600879CA8 /* newton.plist in Resources */,

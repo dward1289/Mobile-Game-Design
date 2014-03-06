@@ -9,6 +9,7 @@
 
 #import "IntroScene.h"
 #import "Main.h"
+#import "OALSimpleAudio.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
@@ -16,7 +17,7 @@
 
 @implementation HelloWorldScene
 {
-    
+    CCSprite *redCar;
 }
 
 // -----------------------------------------------------------------------
@@ -51,6 +52,7 @@
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
     
+    [[OALSimpleAudio sharedInstance] playBg:@"PT_383217_lowres.mp3" loop:YES];
     // done
 	return self;
 }
@@ -60,7 +62,7 @@
 //Gets the red car and makes it move
 - (void)addRedCar:(CCTime)dt{
     
-    CCSprite *redCar = [CCSprite spriteWithImageNamed:@"Red.png"];
+    redCar = [CCSprite spriteWithImageNamed:@"Red.png"];
     
     //Vertical range of the car driving
     redCar.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
@@ -226,9 +228,14 @@
     // Log touch location
     CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
     
-    // Move our sprite to touch location
-    //CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
-    //[redCar runAction:actionMove];
+    // Move red car across lanes
+    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
+    [redCar runAction:actionMove];
+    
+    //Honks the horn
+     [[OALSimpleAudio sharedInstance] playEffect:@"car-honk-1.wav" loop:NO];
+    
+    
 }
 
 // -----------------------------------------------------------------------
