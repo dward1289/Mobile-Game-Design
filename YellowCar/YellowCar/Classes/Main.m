@@ -11,6 +11,7 @@
 #import "Main.h"
 #import "OALSimpleAudio.h"
 
+
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
 // -----------------------------------------------------------------------
@@ -18,6 +19,8 @@
 @implementation HelloWorldScene
 {
     CCSprite *redCar;
+    CCPhysicsNode *physicsWorld;
+    CCSprite *yellowCar;
 }
 
 // -----------------------------------------------------------------------
@@ -44,6 +47,12 @@
     CCSprite* background = [CCSprite spriteWithImageNamed:@"road.png"];
     background.position = ccp(self.contentSize.width/2,self.contentSize.height/2);
     [self addChild:background];
+    
+    physicsWorld = [CCPhysicsNode node];
+    physicsWorld.gravity = ccp(0,0);
+    physicsWorld.debugDraw = NO;
+    physicsWorld.collisionDelegate = self;
+    [self addChild:physicsWorld];
     
     // Create a back button
     CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
@@ -73,7 +82,10 @@
     
     //Position of red car to drive
     redCar.position = CGPointMake(self.contentSize.width + redCar.contentSize.width/2, randomY);
-    [self addChild:redCar];
+    redCar.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, redCar.contentSize} cornerRadius:0];
+    redCar.physicsBody.collisionGroup = @"redGroup";
+    redCar.physicsBody.collisionType  = @"carCollision";
+    [physicsWorld addChild:redCar];
     
     //Speed of the red car
     int minDuration = 3.0;
@@ -104,7 +116,10 @@
     
     //Positions the blue car to begin driving from the right of the screen to the left.
     blueCar.position = CGPointMake(self.contentSize.width + blueCar.contentSize.width/2, randomY);
-    [self addChild:blueCar];
+    blueCar.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, blueCar.contentSize} cornerRadius:0];
+    blueCar.physicsBody.collisionGroup = @"blueGroup";
+    blueCar.physicsBody.collisionType  = @"carCollision";
+    [physicsWorld addChild:blueCar];
     
     //Determines the speend of the blue car.
     int minDuration = 2.0;
@@ -125,7 +140,7 @@
 //Gets the yellow car and makes it move (FASTEST CAR)
 - (void)addYellowCar:(CCTime)dt {
     
-    CCSprite *yellowCar = [CCSprite spriteWithImageNamed:@"Yellow.png"];
+    yellowCar = [CCSprite spriteWithImageNamed:@"Yellow.png"];
     
     //Vertical range for the car to drive on
     int minY = yellowCar.contentSize.height / 2;
@@ -135,11 +150,14 @@
     
     //Makes the yellow car begin driving from right to left with the traffic.
     yellowCar.position = CGPointMake(self.contentSize.width + yellowCar.contentSize.width/2, randomY);
-    [self addChild:yellowCar];
+    yellowCar.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, yellowCar.contentSize} cornerRadius:0];
+    yellowCar.physicsBody.collisionGroup = @"yellowGroup";
+    yellowCar.physicsBody.collisionType  = @"yellowCollision";
+    [physicsWorld addChild:yellowCar];
     
     //Determins the speed of the yellow car. It's the fastest.
-    int minDuration = 1.5;
-    int maxDuration = 2.5;
+    int minDuration = 2.0;
+    int maxDuration = 3.0;
     int rangeDuration = maxDuration - minDuration;
     int randomDuration = (arc4random() % rangeDuration) + minDuration;
     
@@ -166,7 +184,10 @@
     
     //Makes the green car drive on to the screen from the right
     greenCar.position = CGPointMake(self.contentSize.width + greenCar.contentSize.width/2, randomY);
-    [self addChild:greenCar];
+    greenCar.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, greenCar.contentSize} cornerRadius:0];
+    greenCar.physicsBody.collisionGroup = @"greenGroup";
+    greenCar.physicsBody.collisionType  = @"carCollision";
+    [physicsWorld addChild:greenCar];
     
     //Determines the speed of the green car
     int minDuration = 2.0;
@@ -184,6 +205,13 @@
     [greenCar runAction:[CCActionSequence actionWithArray:@[actionMove,actionRemove]]];
 }
 
+//If a car hits the yellow car, the car will make a horn sound.
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair carCollision:(CCNode *)monster yellowCollision:(CCNode *)projectile {
+    
+    //Honks the horn
+    [[OALSimpleAudio sharedInstance] playEffect:@"car-honk-1.wav" loop:NO];
+    return YES;
+}
 - (void)dealloc
 {
     // clean up code goes here
@@ -228,13 +256,10 @@
     // Log touch location
     CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
     
-    // Move red car across lanes
-    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
-    [redCar runAction:actionMove];
-    
-    //Honks the horn
-     [[OALSimpleAudio sharedInstance] playEffect:@"car-honk-1.wav" loop:NO];
-    
+    //Red car disappears on touch
+    [redCar removeFromParent];
+    //Plays the swipe noise
+    [[OALSimpleAudio sharedInstance] playEffect:@"swipe.mp3" loop:NO];
     
 }
 
