@@ -228,7 +228,7 @@
     
     //Displays cars at the given times
     [self schedule:@selector(addBlueCar:) interval:1.5];
-    [self schedule:@selector(addYellowCar:) interval:3.0];
+    [self schedule:@selector(addYellowCar:) interval:1.0];
     [self schedule:@selector(addRedCar:) interval:2.5];
     [self schedule:@selector(addGreenCar:) interval:2.0];
     
