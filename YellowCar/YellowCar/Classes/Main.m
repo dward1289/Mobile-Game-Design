@@ -21,6 +21,16 @@
     CCSprite *redCar;
     CCPhysicsNode *physicsWorld;
     CCSprite *yellowCar;
+    CCSprite *greenCar;
+    CCSprite *blueCar;
+    CCButton *resumeButton;
+    int scoreNum;
+    NSString *theScore;
+    CCLabelTTF *actualScore;
+    int timeNum;
+    NSString *theTime;
+    CCLabelTTF *timeIt;
+    CCLabelTTF *beginTxt;
 }
 
 // -----------------------------------------------------------------------
@@ -54,12 +64,57 @@
     physicsWorld.collisionDelegate = self;
     [self addChild:physicsWorld];
     
-    // Create a back button
-    CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
-    [backButton setTarget:self selector:@selector(onBackClicked:)];
-    [self addChild:backButton];
+    // Create pause button
+    CCButton *pauseButton = [CCButton buttonWithTitle:@"[PAUSE]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    pauseButton.positionType = CCPositionTypeNormalized;
+    pauseButton.position = ccp(0.85f, 0.95f);
+    [pauseButton setTarget:self selector:@selector(onPauseClicked:)];
+    [self addChild:pauseButton];
+    
+    //Begin label
+    beginTxt = [CCLabelTTF labelWithString:@"Tap as many yellow cars as you \ncan before the time runs out. \n\n Tap anywhere to begin." fontName:@"Verdana-Bold" fontSize:24.0f];
+    beginTxt.positionType = CCPositionTypeNormalized;
+    beginTxt.color = [CCColor whiteColor];
+    beginTxt.position = ccp(0.5f, 0.5f);
+    [self addChild:beginTxt];
+    
+    //Time label
+    CCLabelTTF *timeTxt = [CCLabelTTF labelWithString:@"Time: " fontName:@"Verdana-Bold" fontSize:18.0f];
+    timeTxt.positionType = CCPositionTypeNormalized;
+    timeTxt.color = [CCColor yellowColor];
+    timeTxt.position = ccp(0.10f, 0.95f);
+    [self addChild:timeTxt];
+    
+    //Timer data
+    timeNum=60;
+    theTime = [NSString stringWithFormat:@"%i", timeNum];
+    
+    //Displays the timer
+    timeIt = [CCLabelTTF labelWithString:theTime fontName:@"Verdana-Bold" fontSize:18.0f];
+    timeIt.positionType = CCPositionTypeNormalized;
+    timeIt.color = [CCColor yellowColor];
+    timeIt.position = ccp(0.20f, 0.95f); // Middle of screen
+    [self addChild:timeIt];
+    
+    //Score label
+    CCLabelTTF *scoreIt = [CCLabelTTF labelWithString:@"Score: " fontName:@"Verdana-Bold" fontSize:18.0f];
+    scoreIt.positionType = CCPositionTypeNormalized;
+    scoreIt.color = [CCColor yellowColor];
+    scoreIt.position = ccp(0.10f, 0.85f); // Middle of screen
+    [self addChild:scoreIt];
+    
+    //Score data
+    scoreNum=0;
+    theScore = [NSString stringWithFormat:@"%i", scoreNum];
+    
+    //Displays the score
+    actualScore = [CCLabelTTF labelWithString:theScore fontName:@"Verdana-Bold" fontSize:18.0f];
+    actualScore.positionType = CCPositionTypeNormalized;
+    actualScore.color = [CCColor yellowColor];
+    actualScore.position = ccp(0.20f, 0.85f); // Middle of screen
+    [self addChild:actualScore];
+    
+    
     
     [[OALSimpleAudio sharedInstance] playBg:@"PT_383217_lowres.mp3" loop:YES];
     // done
@@ -106,7 +161,7 @@
 //Gets the blue car and makes it move
 - (void)addBlueCar:(CCTime)dt {
     
-    CCSprite *blueCar = [CCSprite spriteWithImageNamed:@"Blue.png"];
+    blueCar = [CCSprite spriteWithImageNamed:@"Blue.png"];
     
     //Vertical range of the car driving
     int minY = blueCar.contentSize.height / 2;
@@ -174,7 +229,7 @@
 //Get the green car sprite and makes it move
 - (void)addGreenCar:(CCTime)dt {
     
-    CCSprite *greenCar = [CCSprite spriteWithImageNamed:@"Green.png"];
+    greenCar = [CCSprite spriteWithImageNamed:@"Green.png"];
     
     //Vertical range for the car to drive on
     int minY = greenCar.contentSize.height / 2;
@@ -203,10 +258,11 @@
     //Removes the car from screen
     CCAction *actionRemove = [CCActionRemove action];
     [greenCar runAction:[CCActionSequence actionWithArray:@[actionMove,actionRemove]]];
+    
 }
 
 //If a car hits the yellow car, the car will make a horn sound.
-- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair carCollision:(CCNode *)monster yellowCollision:(CCNode *)projectile {
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair carCollision:(CCNode *)monster yellowCollision:(CCNode *)yc {
     
     //Honks the horn
     [[OALSimpleAudio sharedInstance] playEffect:@"car-honk-1.wav" loop:NO];
@@ -249,17 +305,26 @@
 // -----------------------------------------------------------------------
 #pragma mark - Touch Handler
 // -----------------------------------------------------------------------
-
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLoc = [touch locationInNode:self];
     
-    // Log touch location
-    CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
+    //Hide begin text
+    [beginTxt removeFromParent];
     
-    //Red car disappears on touch
-    [redCar removeFromParent];
-    //Plays the swipe noise
-    [[OALSimpleAudio sharedInstance] playEffect:@"swipe.mp3" loop:NO];
+    //Starts the timer
+    [self schedule: @selector(clockIt:) interval:1.0];
+    
+    
+    //onTouch for the Yellow Car
+    CGRect rect = CGRectMake(yellowCar.position.x-(yellowCar.contentSize.width/2), yellowCar.position.y-(yellowCar.contentSize.height/2),yellowCar.contentSize.width, yellowCar.contentSize.height);
+    //Checks for yellow car
+    if (CGRectContainsPoint(rect, touchLoc)) {
+        //Gets earned points
+        scoreNum ++;
+        
+        [actualScore setString:[NSString stringWithFormat:@" %d",scoreNum]];
+    }
+    
     
 }
 
@@ -267,13 +332,71 @@
 #pragma mark - Button Callbacks
 // -----------------------------------------------------------------------
 
-- (void)onBackClicked:(id)sender
+//Timer begins to count down
+- (void)clockIt:(id)sender
 {
-    // back to intro scene with transition
-    [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:1.0f]];
+    timeNum--;
+    [timeIt setString:[NSString stringWithFormat:@" %d",timeNum]];
+    
+    //Stops time and game is over.
+    if(timeNum == 0){
+        
+        //Removes sprites
+        [yellowCar removeFromParent];
+        [redCar removeFromParent];
+        [blueCar removeFromParent];
+        [greenCar removeFromParent];
+        timeIt.visible = FALSE;
+        [[OALSimpleAudio sharedInstance]stopBg];
+        [self unscheduleAllSelectors];
+        
+        //Game over screen
+        CCLabelTTF *TU = [CCLabelTTF labelWithString:@"Time's Up!" fontName:@"Chalkduster" fontSize:64.0f];
+        TU.positionType = CCPositionTypeNormalized;
+        TU.color = [CCColor redColor];
+        TU.position = ccp(0.5f, 0.5f);
+        [self addChild:TU];
+        
+        //Done button
+        CCButton *doneButton = [CCButton buttonWithTitle:@"[DONE]" fontName:@"Verdana-Bold" fontSize:18.0f];
+        doneButton.positionType = CCPositionTypeNormalized;
+        doneButton.position = ccp(0.5f, 0.3f);
+        [doneButton setTarget:self selector:@selector(onDoneClicked:)];
+        [self addChild:doneButton];
+    }
 }
 
+//Navigates back to home screen
+- (void)onDoneClicked:(id)sender
+{
+    [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
+                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
+}
+//Pauses game
+- (void)onPauseClicked:(id)sender
+{
+   //Pause
+   [[CCDirector sharedDirector] pause];
+    
+    //Resume button visible
+    resumeButton = [CCButton buttonWithTitle:@"[RESUME]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    resumeButton.positionType = CCPositionTypeNormalized;
+    resumeButton.position = ccp(0.85f, 0.85f);
+    [resumeButton setTarget:self selector:@selector(onResumeClicked:)];
+    [self addChild:resumeButton];
+    
+    
+}
+
+//Resumes game
+- (void)onResumeClicked:(id)sender
+{
+    //Resume
+    [[CCDirector sharedDirector] resume];
+    [resumeButton removeFromParent];
+    
+    
+}
 
 // -----------------------------------------------------------------------
 @end
