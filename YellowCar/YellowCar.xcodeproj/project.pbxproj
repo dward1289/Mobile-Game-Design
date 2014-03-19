@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F41CAC4018C77BE000E770DC /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = F41CAC3F18C77BE000E770DC /* road.png */; };
+		F45E242E18D919F0000D66DE /* Green-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E242D18D919F0000D66DE /* Green-ipadhd.png */; };
+		F45E243218D91AA8000D66DE /* Blue-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E242F18D91AA8000D66DE /* Blue-ipadhd.png */; };
+		F45E243318D91AA8000D66DE /* Red-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E243018D91AA8000D66DE /* Red-ipadhd.png */; };
+		F45E243418D91AA8000D66DE /* Yellow-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E243118D91AA8000D66DE /* Yellow-ipadhd.png */; };
+		F45E243618D91C72000D66DE /* road-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E243518D91C72000D66DE /* road-ipadhd.png */; };
 		F4B855A918D0006B0091F273 /* swipe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F4B855A818D0006B0091F273 /* swipe.mp3 */; };
 		F4F1F42318C81CAA00D96499 /* car-honk-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F4F1F42218C81CAA00D96499 /* car-honk-1.wav */; };
 		F4F1F42518C821D500D96499 /* PT_383217_lowres.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */; };
@@ -242,6 +247,11 @@
 
 /* Begin PBXFileReference section */
 		F41CAC3F18C77BE000E770DC /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		F45E242D18D919F0000D66DE /* Green-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green-ipadhd.png"; sourceTree = "<group>"; };
+		F45E242F18D91AA8000D66DE /* Blue-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue-ipadhd.png"; sourceTree = "<group>"; };
+		F45E243018D91AA8000D66DE /* Red-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red-ipadhd.png"; sourceTree = "<group>"; };
+		F45E243118D91AA8000D66DE /* Yellow-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yellow-ipadhd.png"; sourceTree = "<group>"; };
+		F45E243518D91C72000D66DE /* road-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "road-ipadhd.png"; sourceTree = "<group>"; };
 		F4B855A818D0006B0091F273 /* swipe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = swipe.mp3; sourceTree = "<group>"; };
 		F4F1F42218C81CAA00D96499 /* car-honk-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "car-honk-1.wav"; sourceTree = "<group>"; };
 		F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PT_383217_lowres.mp3; sourceTree = "<group>"; };
@@ -745,6 +755,7 @@
 		F4F4F30618C565F300879CA8 /* YellowCar */ = {
 			isa = PBXGroup;
 			children = (
+				F45E243518D91C72000D66DE /* road-ipadhd.png */,
 				F4B855A818D0006B0091F273 /* swipe.mp3 */,
 				F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */,
 				F4F1F42218C81CAA00D96499 /* car-honk-1.wav */,
@@ -1598,8 +1609,12 @@
 		F4F4F5C418C5662B00879CA8 /* Cars */ = {
 			isa = PBXGroup;
 			children = (
+				F45E242F18D91AA8000D66DE /* Blue-ipadhd.png */,
+				F45E243018D91AA8000D66DE /* Red-ipadhd.png */,
+				F45E243118D91AA8000D66DE /* Yellow-ipadhd.png */,
 				F4F4F5C518C5665000879CA8 /* Blue.png */,
 				F4F4F5C618C5665000879CA8 /* Green.png */,
+				F45E242D18D919F0000D66DE /* Green-ipadhd.png */,
 				F4F4F5C718C5665000879CA8 /* Red.png */,
 				F4F4F5C818C5665000879CA8 /* Yellow.png */,
 			);
@@ -1689,14 +1704,19 @@
 				F4F4F31818C565F300879CA8 /* Icon-72@2x.png in Resources */,
 				F4F4F5C918C5665000879CA8 /* Blue.png in Resources */,
 				F4F4F30918C565F300879CA8 /* Default.png in Resources */,
+				F45E243618D91C72000D66DE /* road-ipadhd.png in Resources */,
 				F4F4F31218C565F300879CA8 /* Icon.png in Resources */,
 				F4F4F32018C565F300879CA8 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				F4F4F30F18C565F300879CA8 /* Default-Landscape~ipad.png in Resources */,
 				F4F4F32418C565F300879CA8 /* Icon-Small.png in Resources */,
 				F4F4F32218C565F300879CA8 /* Icon-Small-50.png in Resources */,
 				F4F4F5CC18C5665000879CA8 /* Yellow.png in Resources */,
+				F45E242E18D919F0000D66DE /* Green-ipadhd.png in Resources */,
+				F45E243218D91AA8000D66DE /* Blue-ipadhd.png in Resources */,
+				F45E243318D91AA8000D66DE /* Red-ipadhd.png in Resources */,
 				F4F4F5AD18C565F600879CA8 /* fire.plist in Resources */,
 				F4F4F5AF18C565F600879CA8 /* fire.png in Resources */,
+				F45E243418D91AA8000D66DE /* Yellow-ipadhd.png in Resources */,
 				F4F4F5B718C565F600879CA8 /* newton-ipad.png in Resources */,
 				F4F4F50B18C565F600879CA8 /* LICENSE_Kazmath.txt in Resources */,
 				F4F4F31618C565F300879CA8 /* Icon-72.png in Resources */,
@@ -2007,12 +2027,14 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = YellowCar/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2031,12 +2053,14 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = YellowCar/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -74,22 +74,22 @@
     redCar = [CCSprite spriteWithImageNamed:@"Red.png"];
     
     //Vertical range of the car driving
-    redCar.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
-    int minY = redCar.contentSize.height / 2;
+    redCar.position  = ccp(self.contentSize.width/4,self.contentSize.height/2);
+    int minY = redCar.contentSize.height / 4;
     int maxY = self.contentSize.height - redCar.contentSize.height / 2;
     int rangeY = maxY - minY;
     int randomY = (arc4random() % rangeY) + minY;
     
     //Position of red car to drive
-    redCar.position = CGPointMake(self.contentSize.width + redCar.contentSize.width/2, randomY);
+    redCar.position = CGPointMake(self.contentSize.width + redCar.contentSize.width/8, randomY);
     redCar.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, redCar.contentSize} cornerRadius:0];
     redCar.physicsBody.collisionGroup = @"redGroup";
     redCar.physicsBody.collisionType  = @"carCollision";
     [physicsWorld addChild:redCar];
     
     //Speed of the red car
-    int minDuration = 3.0;
-    int maxDuration = 5.0;
+    int minDuration = 2.0;
+    int maxDuration = 4.0;
     int rangeDuration = maxDuration - minDuration;
     int randomDuration = (arc4random() % rangeDuration) + minDuration;
     
@@ -157,7 +157,7 @@
     
     //Determins the speed of the yellow car. It's the fastest.
     int minDuration = 2.0;
-    int maxDuration = 3.0;
+    int maxDuration = 4.0;
     int rangeDuration = maxDuration - minDuration;
     int randomDuration = (arc4random() % rangeDuration) + minDuration;
     
@@ -178,12 +178,12 @@
     
     //Vertical range for the car to drive on
     int minY = greenCar.contentSize.height / 2;
-    int maxY = self.contentSize.height - greenCar.contentSize.height / 2;
+    int maxY = self.contentSize.height - greenCar.contentSize.height / 1.5;
     int rangeY = maxY - minY;
     int randomY = (arc4random() % rangeY) + minY;
     
     //Makes the green car drive on to the screen from the right
-    greenCar.position = CGPointMake(self.contentSize.width + greenCar.contentSize.width/2, randomY);
+    greenCar.position = CGPointMake(self.contentSize.width + greenCar.contentSize.width/6, randomY);
     greenCar.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, greenCar.contentSize} cornerRadius:0];
     greenCar.physicsBody.collisionGroup = @"greenGroup";
     greenCar.physicsBody.collisionType  = @"carCollision";
@@ -228,7 +228,7 @@
     
     //Displays cars at the given times
     [self schedule:@selector(addBlueCar:) interval:1.5];
-    [self schedule:@selector(addYellowCar:) interval:1.0];
+    [self schedule:@selector(addYellowCar:) interval:3.0];
     [self schedule:@selector(addRedCar:) interval:2.5];
     [self schedule:@selector(addGreenCar:) interval:2.0];
     
