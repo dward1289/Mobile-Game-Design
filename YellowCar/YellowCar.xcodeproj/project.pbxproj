@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		F41CAC4018C77BE000E770DC /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = F41CAC3F18C77BE000E770DC /* road.png */; };
+		F44A851018DA92F600B088C2 /* TU-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F44A850A18DA92F600B088C2 /* TU-hd.plist */; };
+		F44A851118DA92F600B088C2 /* TU-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F44A850B18DA92F600B088C2 /* TU-hd.png */; };
+		F44A851218DA92F600B088C2 /* TU-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F44A850C18DA92F600B088C2 /* TU-ipadhd.plist */; };
+		F44A851318DA92F600B088C2 /* TU-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F44A850D18DA92F600B088C2 /* TU-ipadhd.png */; };
+		F44A851418DA92F600B088C2 /* TU.plist in Resources */ = {isa = PBXBuildFile; fileRef = F44A850E18DA92F600B088C2 /* TU.plist */; };
+		F44A851518DA92F600B088C2 /* TU.png in Resources */ = {isa = PBXBuildFile; fileRef = F44A850F18DA92F600B088C2 /* TU.png */; };
 		F45E242E18D919F0000D66DE /* Green-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E242D18D919F0000D66DE /* Green-ipadhd.png */; };
 		F45E243218D91AA8000D66DE /* Blue-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E242F18D91AA8000D66DE /* Blue-ipadhd.png */; };
 		F45E243318D91AA8000D66DE /* Red-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F45E243018D91AA8000D66DE /* Red-ipadhd.png */; };
@@ -247,6 +253,12 @@
 
 /* Begin PBXFileReference section */
 		F41CAC3F18C77BE000E770DC /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		F44A850A18DA92F600B088C2 /* TU-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "TU-hd.plist"; path = "Resources/TU-hd.plist"; sourceTree = "<group>"; };
+		F44A850B18DA92F600B088C2 /* TU-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TU-hd.png"; path = "Resources/TU-hd.png"; sourceTree = "<group>"; };
+		F44A850C18DA92F600B088C2 /* TU-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "TU-ipadhd.plist"; path = "Resources/TU-ipadhd.plist"; sourceTree = "<group>"; };
+		F44A850D18DA92F600B088C2 /* TU-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TU-ipadhd.png"; path = "Resources/TU-ipadhd.png"; sourceTree = "<group>"; };
+		F44A850E18DA92F600B088C2 /* TU.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TU.plist; path = Resources/TU.plist; sourceTree = "<group>"; };
+		F44A850F18DA92F600B088C2 /* TU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TU.png; path = Resources/TU.png; sourceTree = "<group>"; };
 		F45E242D18D919F0000D66DE /* Green-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green-ipadhd.png"; sourceTree = "<group>"; };
 		F45E242F18D91AA8000D66DE /* Blue-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue-ipadhd.png"; sourceTree = "<group>"; };
 		F45E243018D91AA8000D66DE /* Red-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red-ipadhd.png"; sourceTree = "<group>"; };
@@ -788,6 +800,12 @@
 		F4F4F30718C565F300879CA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F44A850A18DA92F600B088C2 /* TU-hd.plist */,
+				F44A850B18DA92F600B088C2 /* TU-hd.png */,
+				F44A850C18DA92F600B088C2 /* TU-ipadhd.plist */,
+				F44A850D18DA92F600B088C2 /* TU-ipadhd.png */,
+				F44A850E18DA92F600B088C2 /* TU.plist */,
+				F44A850F18DA92F600B088C2 /* TU.png */,
 				F4F4F30818C565F300879CA8 /* Default.png */,
 				F4F4F30A18C565F300879CA8 /* Default@2x.png */,
 				F4F4F30C18C565F300879CA8 /* Default-568h@2x.png */,
@@ -1714,8 +1732,10 @@
 				F4F4F31418C565F300879CA8 /* Icon@2x.png in Resources */,
 				F4B855A918D0006B0091F273 /* swipe.mp3 in Resources */,
 				F4F1F42518C821D500D96499 /* PT_383217_lowres.mp3 in Resources */,
+				F44A851218DA92F600B088C2 /* TU-ipadhd.plist in Resources */,
 				F4F4F5CB18C5665000879CA8 /* Red.png in Resources */,
 				F4F4F32618C565F300879CA8 /* Icon-Small@2x.png in Resources */,
+				F44A851118DA92F600B088C2 /* TU-hd.png in Resources */,
 				F4F4F5B918C565F600879CA8 /* newton.plist in Resources */,
 				F4F4F31818C565F300879CA8 /* Icon-72@2x.png in Resources */,
 				F4F4F5C918C5665000879CA8 /* Blue.png in Resources */,
@@ -1739,9 +1759,12 @@
 				F4F4F46418C565F500879CA8 /* LICENSE_cocos2d.txt in Resources */,
 				F4F4F5B318C565F600879CA8 /* newton-ipadhd.png in Resources */,
 				F4F4F30D18C565F300879CA8 /* Default-568h@2x.png in Resources */,
+				F44A851518DA92F600B088C2 /* TU.png in Resources */,
 				F4F4F32D18C565F300879CA8 /* iTunesArtwork in Resources */,
 				F41CAC4018C77BE000E770DC /* road.png in Resources */,
 				F4F4F5BB18C565F600879CA8 /* newton.png in Resources */,
+				F44A851418DA92F600B088C2 /* TU.plist in Resources */,
+				F44A851018DA92F600B088C2 /* TU-hd.plist in Resources */,
 				F4F4F32818C565F300879CA8 /* Icon-Spotlight-iOS7.png in Resources */,
 				F4F4F31C18C565F300879CA8 /* Icon-76@2x.png in Resources */,
 				F4F4F59018C565F600879CA8 /* LICENSE_Chipmunk.txt in Resources */,
@@ -1750,6 +1773,7 @@
 				F4F4F4F018C565F600879CA8 /* ChangeLog in Resources */,
 				F4F4F32F18C565F300879CA8 /* iTunesArtwork@2x in Resources */,
 				F4F4F5CA18C5665000879CA8 /* Green.png in Resources */,
+				F44A851318DA92F600B088C2 /* TU-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

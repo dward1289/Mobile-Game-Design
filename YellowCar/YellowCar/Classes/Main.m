@@ -10,6 +10,10 @@
 #import "IntroScene.h"
 #import "Main.h"
 #import "OALSimpleAudio.h"
+#import "CCSpriteFrame.h"
+#import "CCSprite.h"
+#import "CCSpriteFrameCache.h"
+#import "CCAnimation.h"
 
 
 // -----------------------------------------------------------------------
@@ -23,6 +27,7 @@
     CCSprite *yellowCar;
     CCSprite *greenCar;
     CCSprite *blueCar;
+    CCSprite *turningSign;
     CCButton *resumeButton;
     int scoreNum;
     NSString *theScore;
@@ -86,7 +91,7 @@
     [self addChild:timeTxt];
     
     //Timer data
-    timeNum=60;
+    timeNum=1;
     theTime = [NSString stringWithFormat:@"%i", timeNum];
     
     //Displays the timer
@@ -355,7 +360,31 @@
         TU.positionType = CCPositionTypeNormalized;
         TU.color = [CCColor redColor];
         TU.position = ccp(0.5f, 0.5f);
-        [self addChild:TU];
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TU.plist"];
+        CCSpriteFrame *spriteSheet = [CCSpriteFrame frameWithImageNamed:@"TU1.png"];
+        turningSign = [CCSprite spriteWithSpriteFrame:spriteSheet];
+        turningSign.position = ccp(240.0f, 150.0f);
+        
+        [self addChild:turningSign];
+
+        NSMutableArray *signAnimFrames = [NSMutableArray array];
+        
+        for (int i=1; i<=3; i++) {
+            [signAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"TU%d.png",i]]];
+        }
+        
+        CCAnimation *signAnim = [CCAnimation animationWithSpriteFrames:signAnimFrames delay:0.2f];
+        
+        CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:signAnim];
+
+        CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
+        [turningSign runAction:repeatingAnimation];
+        
+        
+        
         
         //Done button
         CCButton *doneButton = [CCButton buttonWithTitle:@"[DONE]" fontName:@"Verdana-Bold" fontSize:18.0f];
