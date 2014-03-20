@@ -77,7 +77,7 @@
     [self addChild:pauseButton];
     
     //Begin label
-    beginTxt = [CCLabelTTF labelWithString:@"Tap as many yellow cars as you \ncan before the time runs out. \n\n Tap anywhere to begin." fontName:@"Verdana-Bold" fontSize:24.0f];
+    beginTxt = [CCLabelTTF labelWithString:@"Tap the yellow cars as much as \npossible before the time runs out. \n\n Tap anywhere to begin." fontName:@"Verdana-Bold" fontSize:24.0f];
     beginTxt.positionType = CCPositionTypeNormalized;
     beginTxt.color = [CCColor whiteColor];
     beginTxt.position = ccp(0.5f, 0.5f);
@@ -91,7 +91,7 @@
     [self addChild:timeTxt];
     
     //Timer data
-    timeNum=1;
+    timeNum=60;
     theTime = [NSString stringWithFormat:@"%i", timeNum];
     
     //Displays the timer
@@ -118,9 +118,8 @@
     actualScore.color = [CCColor yellowColor];
     actualScore.position = ccp(0.20f, 0.85f); // Middle of screen
     [self addChild:actualScore];
-    
-    
-    
+
+    //Background music
     [[OALSimpleAudio sharedInstance] playBg:@"PT_383217_lowres.mp3" loop:YES];
     // done
 	return self;
@@ -266,11 +265,10 @@
     
 }
 
-//If a car hits the yellow car, the car will make a horn sound.
-- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair carCollision:(CCNode *)monster yellowCollision:(CCNode *)yc {
+//If a car hits the yellow car, the car will disappear.
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair carCollision:(CCNode *)oc yellowCollision:(CCNode *)yc {
     
-    //Honks the horn
-    [[OALSimpleAudio sharedInstance] playEffect:@"car-honk-1.wav" loop:NO];
+    [oc removeFromParent];
     return YES;
 }
 - (void)dealloc
@@ -319,13 +317,14 @@
     //Starts the timer
     [self schedule: @selector(clockIt:) interval:1.0];
     
-    
     //onTouch for the Yellow Car
     CGRect rect = CGRectMake(yellowCar.position.x-(yellowCar.contentSize.width/2), yellowCar.position.y-(yellowCar.contentSize.height/2),yellowCar.contentSize.width, yellowCar.contentSize.height);
     //Checks for yellow car
     if (CGRectContainsPoint(rect, touchLoc)) {
         //Gets earned points
         scoreNum ++;
+        //Honks the horn
+        [[OALSimpleAudio sharedInstance] playEffect:@"car-honk-1.wav" loop:NO];
         
         [actualScore setString:[NSString stringWithFormat:@" %d",scoreNum]];
     }
@@ -355,19 +354,17 @@
         [[OALSimpleAudio sharedInstance]stopBg];
         [self unscheduleAllSelectors];
         
-        //Game over screen
-        CCLabelTTF *TU = [CCLabelTTF labelWithString:@"Time's Up!" fontName:@"Chalkduster" fontSize:64.0f];
-        TU.positionType = CCPositionTypeNormalized;
-        TU.color = [CCColor redColor];
-        TU.position = ccp(0.5f, 0.5f);
-        
+        //Gets view size
+        CGSize winSize = [[CCDirector sharedDirector] viewSize];
+        //Creates time up sign
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TU.plist"];
         CCSpriteFrame *spriteSheet = [CCSpriteFrame frameWithImageNamed:@"TU1.png"];
         turningSign = [CCSprite spriteWithSpriteFrame:spriteSheet];
-        turningSign.position = ccp(240.0f, 150.0f);
+        turningSign.position = ccp(winSize.width/2, winSize.height/2);
         
         [self addChild:turningSign];
 
+        //Animation
         NSMutableArray *signAnimFrames = [NSMutableArray array];
         
         for (int i=1; i<=3; i++) {
@@ -377,17 +374,13 @@
         }
         
         CCAnimation *signAnim = [CCAnimation animationWithSpriteFrames:signAnimFrames delay:0.2f];
-        
         CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:signAnim];
-
+        //Make animtion repeat constantly
         CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
         [turningSign runAction:repeatingAnimation];
         
-        
-        
-        
         //Done button
-        CCButton *doneButton = [CCButton buttonWithTitle:@"[DONE]" fontName:@"Verdana-Bold" fontSize:18.0f];
+        CCButton *doneButton = [CCButton buttonWithTitle:@"[PLAY AGAIN]" fontName:@"Verdana-Bold" fontSize:18.0f];
         doneButton.positionType = CCPositionTypeNormalized;
         doneButton.position = ccp(0.5f, 0.3f);
         [doneButton setTarget:self selector:@selector(onDoneClicked:)];
@@ -413,7 +406,6 @@
     resumeButton.position = ccp(0.85f, 0.85f);
     [resumeButton setTarget:self selector:@selector(onResumeClicked:)];
     [self addChild:resumeButton];
-    
     
 }
 
