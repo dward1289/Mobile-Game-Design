@@ -269,6 +269,7 @@
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair carCollision:(CCNode *)oc yellowCollision:(CCNode *)yc {
     
     [oc removeFromParent];
+    [[OALSimpleAudio sharedInstance] playEffect:@"swipe.mp3" loop:NO];
     return YES;
 }
 - (void)dealloc
