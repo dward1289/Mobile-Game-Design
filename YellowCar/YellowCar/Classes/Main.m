@@ -35,7 +35,6 @@
     int timeNum;
     NSString *theTime;
     CCLabelTTF *timeIt;
-    CCLabelTTF *beginTxt;
 }
 
 // -----------------------------------------------------------------------
@@ -75,14 +74,7 @@
     pauseButton.position = ccp(0.85f, 0.95f);
     [pauseButton setTarget:self selector:@selector(onPauseClicked:)];
     [self addChild:pauseButton];
-    
-    //Begin label
-    beginTxt = [CCLabelTTF labelWithString:@"Tap the yellow cars as much as \npossible before the time runs out. \n\n Tap anywhere to begin." fontName:@"Verdana-Bold" fontSize:24.0f];
-    beginTxt.positionType = CCPositionTypeNormalized;
-    beginTxt.color = [CCColor whiteColor];
-    beginTxt.position = ccp(0.5f, 0.5f);
-    [self addChild:beginTxt];
-    
+        
     //Time label
     CCLabelTTF *timeTxt = [CCLabelTTF labelWithString:@"Time: " fontName:@"Verdana-Bold" fontSize:18.0f];
     timeTxt.positionType = CCPositionTypeNormalized;
@@ -121,6 +113,9 @@
 
     //Background music
     [[OALSimpleAudio sharedInstance] playBg:@"PT_383217_lowres.mp3" loop:YES];
+    
+    //Starts the timer
+    [self schedule: @selector(clockIt:) interval:1.0];
     // done
 	return self;
 }
@@ -311,13 +306,7 @@
 // -----------------------------------------------------------------------
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLoc = [touch locationInNode:self];
-    
-    //Hide begin text
-    [beginTxt removeFromParent];
-    
-    //Starts the timer
-    [self schedule: @selector(clockIt:) interval:1.0];
-    
+
     //onTouch for the Yellow Car
     CGRect rect = CGRectMake(yellowCar.position.x-(yellowCar.contentSize.width/2), yellowCar.position.y-(yellowCar.contentSize.height/2),yellowCar.contentSize.width, yellowCar.contentSize.height);
     //Checks for yellow car

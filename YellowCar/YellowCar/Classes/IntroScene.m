@@ -9,6 +9,7 @@
 
 // Import the interfaces
 #import "IntroScene.h"
+#import "InstructionScene.h"
 #import "Main.h"
 
 // -----------------------------------------------------------------------
@@ -45,12 +46,24 @@
     label.position = ccp(0.5f, 0.5f); // Middle of screen
     [self addChild:label];
     
-    // Spinning scene button
-    CCButton *spinningButton = [CCButton buttonWithTitle:@"[ Start ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    spinningButton.positionType = CCPositionTypeNormalized;
-    spinningButton.position = ccp(0.5f, 0.35f);
-    [spinningButton setTarget:self selector:@selector(onSpinningClicked:)];
-    [self addChild:spinningButton];
+    // Start button
+    CCButton *startButton = [CCButton buttonWithTitle:@"[ Start ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    startButton.positionType = CCPositionTypeNormalized;
+    startButton.position = ccp(0.5f, 0.35f);
+    [startButton setTarget:self selector:@selector(onStartClicked:)];
+    [self addChild:startButton];
+    
+    CCButton *instructionButton = [CCButton buttonWithTitle:@"[ How to Play ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    instructionButton.positionType = CCPositionTypeNormalized;
+    instructionButton.position = ccp(0.5f, 0.25f);
+    [instructionButton setTarget:self selector:@selector(onInstructionClicked:)];
+    [self addChild:instructionButton];
+    
+    CCButton *creditButton = [CCButton buttonWithTitle:@"[ Credits ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    creditButton.positionType = CCPositionTypeNormalized;
+    creditButton.position = ccp(0.5f, 0.15f);
+    [creditButton setTarget:self selector:@selector(onCreditClicked:)];
+    [self addChild:creditButton];
 	
     // done
 	return self;
@@ -60,9 +73,23 @@
 #pragma mark - Button Callbacks
 // -----------------------------------------------------------------------
 
-- (void)onSpinningClicked:(id)sender
+- (void)onStartClicked:(id)sender
 {
-    // start spinning scene with transition
+    // start game
+    [[CCDirector sharedDirector] replaceScene:[HelloWorldScene scene]
+                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
+}
+
+- (void)onInstructionClicked:(id)sender
+{
+    // Instructions
+    [[CCDirector sharedDirector] pushScene:[InstructionScene scene]
+                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
+}
+
+- (void)onCreditClicked:(id)sender
+{
+    // Credits
     [[CCDirector sharedDirector] replaceScene:[HelloWorldScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
 }

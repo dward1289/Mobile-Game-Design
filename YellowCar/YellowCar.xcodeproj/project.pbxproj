@@ -37,6 +37,9 @@
 		F4D31B7E18E13E5B006AE627 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D31B7718E13E5B006AE627 /* Icon-Small@2x.png */; };
 		F4D31B7F18E13E5B006AE627 /* Icon-Spotlight-iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D31B7818E13E5B006AE627 /* Icon-Spotlight-iOS7@2x.png */; };
 		F4D31B8018E13E5B006AE627 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D31B7918E13E5B006AE627 /* Icon@2x.png */; };
+		F4E286A118E26FC7007E0011 /* Instructions-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E286A018E26FC7007E0011 /* Instructions-ipadhd.png */; };
+		F4E286A618E2736E007E0011 /* InstructionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E286A518E2736E007E0011 /* InstructionScene.m */; };
+		F4E286B218E27F95007E0011 /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E286B118E27F95007E0011 /* Instructions.png */; };
 		F4F1F42318C81CAA00D96499 /* car-honk-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F4F1F42218C81CAA00D96499 /* car-honk-1.wav */; };
 		F4F1F42518C821D500D96499 /* PT_383217_lowres.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */; };
 		F4F4F2EF18C565F300879CA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F4F2EE18C565F300879CA8 /* QuartzCore.framework */; };
@@ -282,6 +285,10 @@
 		F4D31B7718E13E5B006AE627 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		F4D31B7818E13E5B006AE627 /* Icon-Spotlight-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-iOS7@2x.png"; sourceTree = "<group>"; };
 		F4D31B7918E13E5B006AE627 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		F4E286A018E26FC7007E0011 /* Instructions-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instructions-ipadhd.png"; sourceTree = "<group>"; };
+		F4E286A418E2736E007E0011 /* InstructionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionScene.h; sourceTree = "<group>"; };
+		F4E286A518E2736E007E0011 /* InstructionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionScene.m; sourceTree = "<group>"; };
+		F4E286B118E27F95007E0011 /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = "<group>"; };
 		F4F1F42218C81CAA00D96499 /* car-honk-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "car-honk-1.wav"; sourceTree = "<group>"; };
 		F4F1F42418C821D500D96499 /* PT_383217_lowres.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PT_383217_lowres.mp3; sourceTree = "<group>"; };
 		F4F4F2EB18C565F300879CA8 /* YellowCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YellowCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -786,6 +793,8 @@
 		F4F4F30618C565F300879CA8 /* YellowCar */ = {
 			isa = PBXGroup;
 			children = (
+				F4E286B118E27F95007E0011 /* Instructions.png */,
+				F4E286A018E26FC7007E0011 /* Instructions-ipadhd.png */,
 				F45E243818D91D18000D66DE /* Sounds */,
 				F45E243718D91D02000D66DE /* Road */,
 				F4F4F5C418C5662B00879CA8 /* Cars */,
@@ -1636,6 +1645,8 @@
 				F4F4F59A18C565F600879CA8 /* Main.m */,
 				F4F4F59C18C565F600879CA8 /* IntroScene.h */,
 				F4F4F59D18C565F600879CA8 /* IntroScene.m */,
+				F4E286A418E2736E007E0011 /* InstructionScene.h */,
+				F4E286A518E2736E007E0011 /* InstructionScene.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1726,7 +1737,9 @@
 				F4F1F42318C81CAA00D96499 /* car-honk-1.wav in Resources */,
 				F4D31B8018E13E5B006AE627 /* Icon@2x.png in Resources */,
 				F4D31B6D18E13A87006AE627 /* Icon-Spotlight-iOS7.png in Resources */,
+				F4E286B218E27F95007E0011 /* Instructions.png in Resources */,
 				F4F4F52218C565F600879CA8 /* LICENSE_CCBReader.txt in Resources */,
+				F4E286A118E26FC7007E0011 /* Instructions-ipadhd.png in Resources */,
 				F4F4F5B518C565F600879CA8 /* newton-ipad.plist in Resources */,
 				F4F4F5B118C565F600879CA8 /* newton-ipadhd.plist in Resources */,
 				F4B855A918D0006B0091F273 /* swipe.mp3 in Resources */,
@@ -1788,6 +1801,7 @@
 				F4F4F51518C565F600879CA8 /* CCBReader.m in Sources */,
 				F4F4F4C518C565F500879CA8 /* CCButton.m in Sources */,
 				F4F4F47018C565F500879CA8 /* OALAudioActions.m in Sources */,
+				F4E286A618E2736E007E0011 /* InstructionScene.m in Sources */,
 				F4F4F4B518C565F500879CA8 /* NSMutableArray+WeakReferences.m in Sources */,
 				F4F4F42F18C565F400879CA8 /* CCGLView.m in Sources */,
 				F4F4F4F918C565F600879CA8 /* mat4.c in Sources */,
