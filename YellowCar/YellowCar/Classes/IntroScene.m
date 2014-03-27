@@ -11,6 +11,7 @@
 #import "IntroScene.h"
 #import "InstructionScene.h"
 #import "Main.h"
+#import "CreditScene.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - IntroScene
@@ -90,7 +91,7 @@
 - (void)onCreditClicked:(id)sender
 {
     // Credits
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldScene scene]
+    [[CCDirector sharedDirector] pushScene:[CreditScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
 }
 

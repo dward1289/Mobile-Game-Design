@@ -23,6 +23,9 @@
 		F4661CDE18E134FA00728DC7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4661CDB18E134FA00728DC7 /* Default-568h@2x.png */; };
 		F4661CDF18E134FA00728DC7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F4661CDC18E134FA00728DC7 /* Default.png */; };
 		F4661CE018E134FA00728DC7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4661CDD18E134FA00728DC7 /* Default@2x.png */; };
+		F4B325CE18E3B5E300035C67 /* CreditScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B325CD18E3B5E300035C67 /* CreditScene.m */; };
+		F4B325D118E3BA1C00035C67 /* Credits-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B325CF18E3BA1C00035C67 /* Credits-ipadhd.png */; };
+		F4B325D218E3BA1C00035C67 /* Credits.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B325D018E3BA1C00035C67 /* Credits.png */; };
 		F4B855A918D0006B0091F273 /* swipe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F4B855A818D0006B0091F273 /* swipe.mp3 */; };
 		F4D31B6C18E13A87006AE627 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D31B6518E13A87006AE627 /* Icon-Small.png */; };
 		F4D31B6D18E13A87006AE627 /* Icon-Spotlight-iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D31B6618E13A87006AE627 /* Icon-Spotlight-iOS7.png */; };
@@ -271,6 +274,10 @@
 		F4661CDB18E134FA00728DC7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F4661CDC18E134FA00728DC7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F4661CDD18E134FA00728DC7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F4B325CC18E3B5E300035C67 /* CreditScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditScene.h; sourceTree = "<group>"; };
+		F4B325CD18E3B5E300035C67 /* CreditScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditScene.m; sourceTree = "<group>"; };
+		F4B325CF18E3BA1C00035C67 /* Credits-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Credits-ipadhd.png"; sourceTree = "<group>"; };
+		F4B325D018E3BA1C00035C67 /* Credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Credits.png; sourceTree = "<group>"; };
 		F4B855A818D0006B0091F273 /* swipe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = swipe.mp3; sourceTree = "<group>"; };
 		F4D31B6518E13A87006AE627 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		F4D31B6618E13A87006AE627 /* Icon-Spotlight-iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-iOS7.png"; sourceTree = "<group>"; };
@@ -756,6 +763,24 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
+		F4B325D318E3BBED00035C67 /* Credits Images */ = {
+			isa = PBXGroup;
+			children = (
+				F4B325CF18E3BA1C00035C67 /* Credits-ipadhd.png */,
+				F4B325D018E3BA1C00035C67 /* Credits.png */,
+			);
+			name = "Credits Images";
+			sourceTree = "<group>";
+		};
+		F4B325D418E3BBFF00035C67 /* Instructions Images */ = {
+			isa = PBXGroup;
+			children = (
+				F4E286B118E27F95007E0011 /* Instructions.png */,
+				F4E286A018E26FC7007E0011 /* Instructions-ipadhd.png */,
+			);
+			name = "Instructions Images";
+			sourceTree = "<group>";
+		};
 		F4F4F2E218C565F300879CA8 = {
 			isa = PBXGroup;
 			children = (
@@ -793,8 +818,8 @@
 		F4F4F30618C565F300879CA8 /* YellowCar */ = {
 			isa = PBXGroup;
 			children = (
-				F4E286B118E27F95007E0011 /* Instructions.png */,
-				F4E286A018E26FC7007E0011 /* Instructions-ipadhd.png */,
+				F4B325D418E3BBFF00035C67 /* Instructions Images */,
+				F4B325D318E3BBED00035C67 /* Credits Images */,
 				F45E243818D91D18000D66DE /* Sounds */,
 				F45E243718D91D02000D66DE /* Road */,
 				F4F4F5C418C5662B00879CA8 /* Cars */,
@@ -1647,6 +1672,8 @@
 				F4F4F59D18C565F600879CA8 /* IntroScene.m */,
 				F4E286A418E2736E007E0011 /* InstructionScene.h */,
 				F4E286A518E2736E007E0011 /* InstructionScene.m */,
+				F4B325CC18E3B5E300035C67 /* CreditScene.h */,
+				F4B325CD18E3B5E300035C67 /* CreditScene.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1753,6 +1780,7 @@
 				F44A851118DA92F600B088C2 /* TU-hd.png in Resources */,
 				F4F4F5B918C565F600879CA8 /* newton.plist in Resources */,
 				F4D31B6F18E13A87006AE627 /* Icon.png in Resources */,
+				F4B325D218E3BA1C00035C67 /* Credits.png in Resources */,
 				F4D31B7B18E13E5B006AE627 /* Icon-76@2x.png in Resources */,
 				F4D31B6E18E13A87006AE627 /* Icon-Small-50..png in Resources */,
 				F4F4F5C918C5665000879CA8 /* Blue.png in Resources */,
@@ -1760,6 +1788,7 @@
 				F4D31B7D18E13E5B006AE627 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				F4661CDF18E134FA00728DC7 /* Default.png in Resources */,
 				F4F4F5CC18C5665000879CA8 /* Yellow.png in Resources */,
+				F4B325D118E3BA1C00035C67 /* Credits-ipadhd.png in Resources */,
 				F45E242E18D919F0000D66DE /* Green-ipadhd.png in Resources */,
 				F45E243218D91AA8000D66DE /* Blue-ipadhd.png in Resources */,
 				F45E243318D91AA8000D66DE /* Red-ipadhd.png in Resources */,
@@ -1862,6 +1891,7 @@
 				F4F4F33E18C565F300879CA8 /* CCActionInstant.m in Sources */,
 				F4F4F43818C565F500879CA8 /* base64.c in Sources */,
 				F4F4F47718C565F500879CA8 /* OALAudioTrack.m in Sources */,
+				F4B325CE18E3B5E300035C67 /* CreditScene.m in Sources */,
 				F4F4F3BA18C565F400879CA8 /* CCProgressNode.m in Sources */,
 				F4F4F3AD18C565F400879CA8 /* CCPhysicsBody.m in Sources */,
 				F4F4F43218C565F400879CA8 /* CCWindow.m in Sources */,
