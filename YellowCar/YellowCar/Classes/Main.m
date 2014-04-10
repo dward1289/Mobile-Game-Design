@@ -83,7 +83,7 @@
     [self addChild:timeTxt];
     
     //Timer data
-    timeNum=60;
+    timeNum=120;
     theTime = [NSString stringWithFormat:@"%i", timeNum];
     
     //Displays the timer
@@ -332,6 +332,98 @@
     timeNum--;
     [timeIt setString:[NSString stringWithFormat:@" %d",timeNum]];
     
+    if(timeNum < 90){
+        
+        //Green Car Speed Up
+        int minY = greenCar.contentSize.height / 2;
+        int maxY = self.contentSize.height - greenCar.contentSize.height / 1.5;
+        int rangeY = maxY - minY;
+        int randomY = (arc4random() % rangeY) + minY;
+        int maxDurationG = 3.0;
+        CCAction *actionMove = [CCActionMoveTo actionWithDuration:maxDurationG position:CGPointMake(-greenCar.contentSize.width/2, randomY)];
+        //Removes the car from screen
+        CCAction *actionRemove = [CCActionRemove action];
+        [greenCar runAction:[CCActionSequence actionWithArray:@[actionMove,actionRemove]]];
+        
+        //Red Car Speed Up
+        int minYR = redCar.contentSize.height / 2;
+        int maxYR = self.contentSize.height - redCar.contentSize.height / 1.5;
+        int rangeYR = maxYR - minYR;
+        int randomYR = (arc4random() % rangeYR) + minYR;
+        int maxDurationR = 3.0;
+        CCAction *actionMoveR = [CCActionMoveTo actionWithDuration:maxDurationR position:CGPointMake(-redCar.contentSize.width/2, randomYR)];
+        //Removes the car from screen
+        CCAction *actionRemoveR = [CCActionRemove action];
+        [redCar runAction:[CCActionSequence actionWithArray:@[actionMoveR,actionRemoveR]]];
+        
+        //Blue Car Speed Up
+        int minYB = blueCar.contentSize.height / 2;
+        int maxYB = self.contentSize.height - blueCar.contentSize.height / 1.5;
+        int rangeYB = maxYB - minYB;
+        int randomYB = (arc4random() % rangeYB) + minYB;
+        int maxDurationB = 3.0;
+        CCAction *actionMoveB = [CCActionMoveTo actionWithDuration:maxDurationB position:CGPointMake(-blueCar.contentSize.width/2, randomYB)];
+        //Removes the car from screen
+        CCAction *actionRemoveB = [CCActionRemove action];
+        [blueCar runAction:[CCActionSequence actionWithArray:@[actionMoveB,actionRemoveB]]];
+        
+        //Yellow Car Speed Up
+        int minYY = yellowCar.contentSize.height / 2;
+        int maxYY = self.contentSize.height - yellowCar.contentSize.height / 1.5;
+        int rangeYY = maxYY - minYY;
+        int randomYY = (arc4random() % rangeYY) + minYY;
+        int maxDurationY = 3.0;
+        CCAction *actionMoveY = [CCActionMoveTo actionWithDuration:maxDurationY position:CGPointMake(-yellowCar.contentSize.width/2, randomYY)];
+        //Removes the car from screen
+        CCAction *actionRemoveY = [CCActionRemove action];
+        [yellowCar runAction:[CCActionSequence actionWithArray:@[actionMoveY,actionRemoveY]]];
+        
+    }else if (timeNum < 60){
+        
+        //Green Car Speed Up
+        int minY = greenCar.contentSize.height / 2;
+        int maxY = self.contentSize.height - greenCar.contentSize.height / 1.5;
+        int rangeY = maxY - minY;
+        int randomY = (arc4random() % rangeY) + minY;
+        int maxDurationG = 1.0;
+        CCAction *actionMove = [CCActionMoveTo actionWithDuration:maxDurationG position:CGPointMake(-greenCar.contentSize.width/2, randomY)];
+        //Removes the car from screen
+        CCAction *actionRemove = [CCActionRemove action];
+        [greenCar runAction:[CCActionSequence actionWithArray:@[actionMove,actionRemove]]];
+        
+        //Red Car Speed Up
+        int minYR = redCar.contentSize.height / 2;
+        int maxYR = self.contentSize.height - redCar.contentSize.height / 1.5;
+        int rangeYR = maxYR - minYR;
+        int randomYR = (arc4random() % rangeYR) + minYR;
+        int maxDurationR = 1.0;
+        CCAction *actionMoveR = [CCActionMoveTo actionWithDuration:maxDurationR position:CGPointMake(-redCar.contentSize.width/2, randomYR)];
+        //Removes the car from screen
+        CCAction *actionRemoveR = [CCActionRemove action];
+        [redCar runAction:[CCActionSequence actionWithArray:@[actionMoveR,actionRemoveR]]];
+        
+        //Blue Car Speed Up
+        int minYB = blueCar.contentSize.height / 2;
+        int maxYB = self.contentSize.height - blueCar.contentSize.height / 1.5;
+        int rangeYB = maxYB - minYB;
+        int randomYB = (arc4random() % rangeYB) + minYB;
+        int maxDurationB = 1.0;
+        CCAction *actionMoveB = [CCActionMoveTo actionWithDuration:maxDurationB position:CGPointMake(-blueCar.contentSize.width/2, randomYB)];
+        //Removes the car from screen
+        CCAction *actionRemoveB = [CCActionRemove action];
+        [blueCar runAction:[CCActionSequence actionWithArray:@[actionMoveB,actionRemoveB]]];
+        
+        //Yellow Car Speed Up
+        int minYY = yellowCar.contentSize.height / 2;
+        int maxYY = self.contentSize.height - yellowCar.contentSize.height / 1.5;
+        int rangeYY = maxYY - minYY;
+        int randomYY = (arc4random() % rangeYY) + minYY;
+        int maxDurationY = 1.0;
+        CCAction *actionMoveY = [CCActionMoveTo actionWithDuration:maxDurationY position:CGPointMake(-yellowCar.contentSize.width/2, randomYY)];
+        //Removes the car from screen
+        CCAction *actionRemoveY = [CCActionRemove action];
+        [yellowCar runAction:[CCActionSequence actionWithArray:@[actionMoveY,actionRemoveY]]];
+    }
     //Stops time and game is over.
     if(timeNum == 0){
         
