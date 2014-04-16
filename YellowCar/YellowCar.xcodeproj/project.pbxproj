@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F41CAC4018C77BE000E770DC /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = F41CAC3F18C77BE000E770DC /* road.png */; };
+		F43934F618FE25C7005B1422 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43934F518FE25C7005B1422 /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F43934FD18FE2DF6005B1422 /* GameCenterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F43934FC18FE2DF6005B1422 /* GameCenterHelper.m */; };
 		F44A851018DA92F600B088C2 /* TU-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F44A850A18DA92F600B088C2 /* TU-hd.plist */; };
 		F44A851118DA92F600B088C2 /* TU-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F44A850B18DA92F600B088C2 /* TU-hd.png */; };
 		F44A851218DA92F600B088C2 /* TU-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F44A850C18DA92F600B088C2 /* TU-ipadhd.plist */; };
@@ -259,6 +261,9 @@
 
 /* Begin PBXFileReference section */
 		F41CAC3F18C77BE000E770DC /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		F43934F518FE25C7005B1422 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		F43934FB18FE2DF6005B1422 /* GameCenterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterHelper.h; sourceTree = "<group>"; };
+		F43934FC18FE2DF6005B1422 /* GameCenterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterHelper.m; sourceTree = "<group>"; };
 		F44A850A18DA92F600B088C2 /* TU-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "TU-hd.plist"; path = "Resources/TU-hd.plist"; sourceTree = "<group>"; };
 		F44A850B18DA92F600B088C2 /* TU-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TU-hd.png"; path = "Resources/TU-hd.png"; sourceTree = "<group>"; };
 		F44A850C18DA92F600B088C2 /* TU-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "TU-ipadhd.plist"; path = "Resources/TU-ipadhd.plist"; sourceTree = "<group>"; };
@@ -728,6 +733,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43934F618FE25C7005B1422 /* GameKit.framework in Frameworks */,
 				F4F4F30518C565F300879CA8 /* libObjectiveChipmunk.a in Frameworks */,
 				F4F4F2F318C565F300879CA8 /* OpenAL.framework in Frameworks */,
 				F4F4F2F918C565F300879CA8 /* UIKit.framework in Frameworks */,
@@ -744,6 +750,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F43934F718FE2600005B1422 /* GameCenterFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F43934FB18FE2DF6005B1422 /* GameCenterHelper.h */,
+				F43934FC18FE2DF6005B1422 /* GameCenterHelper.m */,
+			);
+			name = GameCenterFiles;
+			sourceTree = "<group>";
+		};
 		F45E243718D91D02000D66DE /* Road */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,6 +817,7 @@
 		F4F4F2ED18C565F300879CA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F43934F518FE25C7005B1422 /* GameKit.framework */,
 				F4F4F2EE18C565F300879CA8 /* QuartzCore.framework */,
 				F4F4F2F018C565F300879CA8 /* OpenGLES.framework */,
 				F4F4F2F218C565F300879CA8 /* OpenAL.framework */,
@@ -818,6 +834,7 @@
 		F4F4F30618C565F300879CA8 /* YellowCar */ = {
 			isa = PBXGroup;
 			children = (
+				F43934F718FE2600005B1422 /* GameCenterFiles */,
 				F4B325D418E3BBFF00035C67 /* Instructions Images */,
 				F4B325D318E3BBED00035C67 /* Credits Images */,
 				F45E243818D91D18000D66DE /* Sounds */,
@@ -1735,8 +1752,13 @@
 		F4F4F2E318C565F300879CA8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Devona Ward";
+				TargetAttributes = {
+					F4F4F2EA18C565F300879CA8 = {
+						DevelopmentTeam = KXBYLNSR3G;
+					};
+				};
 			};
 			buildConfigurationList = F4F4F2E618C565F300879CA8 /* Build configuration list for PBXProject "YellowCar" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1910,6 +1932,7 @@
 				F4F4F50918C565F600879CA8 /* vec4.c in Sources */,
 				F4F4F41B18C565F400879CA8 /* CCDirectorIOS.m in Sources */,
 				F4F4F3F218C565F400879CA8 /* CCSpriteFrameCache.m in Sources */,
+				F43934FD18FE2DF6005B1422 /* GameCenterHelper.m in Sources */,
 				F4F4F4B118C565F500879CA8 /* mach_timing.c in Sources */,
 				F4F4F49518C565F500879CA8 /* ALListener.m in Sources */,
 				F4F4F36E18C565F400879CA8 /* ccFPSImages.m in Sources */,
@@ -2023,8 +2046,13 @@
 		F4F4F5BC18C565F600879CA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2034,9 +2062,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2045,8 +2078,13 @@
 		F4F4F5BD18C565F600879CA8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2054,7 +2092,11 @@
 					"NS_BLOCK_ASSERTIONS=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
@@ -2066,7 +2108,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
@@ -2083,7 +2124,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
@@ -2100,7 +2140,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2118,6 +2159,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2127,7 +2169,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YellowCar/Supporting Files/Prefix.pch";
@@ -2144,6 +2187,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

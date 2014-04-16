@@ -14,7 +14,7 @@
 #import "CCSprite.h"
 #import "CCSpriteFrameCache.h"
 #import "CCAnimation.h"
-
+#import "GameCenterHelper.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
@@ -460,6 +460,9 @@
         //Make animtion repeat constantly
         CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
         [turningSign runAction:repeatingAnimation];
+        
+        //Submit score to Game Center
+        [[GameCenterHelper sharedInstance] submitScore:scoreNum];
         
         //Done button
         CCButton *doneButton = [CCButton buttonWithTitle:@"[PLAY AGAIN]" fontName:@"Verdana-Bold" fontSize:18.0f];
