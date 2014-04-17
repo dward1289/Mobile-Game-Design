@@ -445,6 +445,9 @@
         turningSign.position = ccp(winSize.width/2, winSize.height/2);
         
         [self addChild:turningSign];
+        
+        //Submit score to Game Center
+        [[GameCenterHelper sharedInstance] submitScore:scoreNum];
 
         //Animation
         NSMutableArray *signAnimFrames = [NSMutableArray array];
@@ -461,8 +464,13 @@
         CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
         [turningSign runAction:repeatingAnimation];
         
-        //Submit score to Game Center
-        [[GameCenterHelper sharedInstance] submitScore:scoreNum];
+        //Score button
+        CCButton *scoreButton = [CCButton buttonWithTitle:@"[SHOW HIGH SCORES]" fontName:@"Verdana-Bold" fontSize:18.0f];
+        scoreButton.positionType = CCPositionTypeNormalized;
+        scoreButton.position = ccp(0.5f, 0.2f);
+        [scoreButton setTarget:self selector:@selector(showLeaderboard)];
+        [self addChild:scoreButton];
+        
         
         //Done button
         CCButton *doneButton = [CCButton buttonWithTitle:@"[PLAY AGAIN]" fontName:@"Verdana-Bold" fontSize:18.0f];
@@ -471,6 +479,23 @@
         [doneButton setTarget:self selector:@selector(onDoneClicked:)];
         [self addChild:doneButton];
     }
+}
+
+//Displays the leader board
+-(void)showLeaderboard{
+    GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+    if (leaderboardController != NULL)
+    {
+        leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
+        leaderboardController.leaderboardDelegate = self;
+        [[CCDirector sharedDirector] presentModalViewController: leaderboardController animated: YES];
+    }
+}
+
+//Dismiss the leader board
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+    [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 //Navigates back to home screen
