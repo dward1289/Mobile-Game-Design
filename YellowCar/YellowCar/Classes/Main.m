@@ -35,6 +35,7 @@
     int timeNum;
     NSString *theTime;
     CCLabelTTF *timeIt;
+    GKAchievement *oh;
 }
 
 // -----------------------------------------------------------------------
@@ -83,7 +84,7 @@
     [self addChild:timeTxt];
     
     //Timer data
-    timeNum=120;
+    timeNum=30;
     theTime = [NSString stringWithFormat:@"%i", timeNum];
     
     //Displays the timer
@@ -116,6 +117,8 @@
     
     //Starts the timer
     [self schedule: @selector(clockIt:) interval:1.0];
+ 
+    
     // done
 	return self;
 }
@@ -332,6 +335,7 @@
     timeNum--;
     [timeIt setString:[NSString stringWithFormat:@" %d",timeNum]];
     
+    
     if(timeNum < 90){
         
         //Green Car Speed Up
@@ -446,8 +450,27 @@
         
         [self addChild:turningSign];
         
+        //Display Achievement notification
+        NSMutableDictionary *achievementDescriptions = [[NSMutableDictionary alloc] init];
+        [GKAchievementDescription loadAchievementDescriptionsWithCompletionHandler:^(NSArray *descriptions, NSError *error) {
+            if (error != nil) {
+                NSLog(@"Error getting achievement descriptions: %@", error);
+            }
+            for (GKAchievement *achievementDescription in descriptions) {
+                [achievementDescriptions setObject:achievementDescription forKey:achievementDescription.identifier];
+            }
+            GKAchievementDescription *achievementDescription2 = [achievementDescriptions objectForKey:@"fifty"];
+            
+            [GKNotificationBanner showBannerWithTitle:achievementDescription2.title message:achievementDescription2.achievedDescription completionHandler:nil];
+            //Marks achievement as completed
+            oh = [achievementDescriptions objectForKey:@"fifty"];
+            oh.percentComplete = 100.0;
+        }];
+        
+
         //Submit score to Game Center
         [[GameCenterHelper sharedInstance] submitScore:scoreNum];
+        
 
         //Animation
         NSMutableArray *signAnimFrames = [NSMutableArray array];
@@ -471,7 +494,7 @@
         [scoreButton setTarget:self selector:@selector(showLeaderboard)];
         [self addChild:scoreButton];
         
-        
+
         //Done button
         CCButton *doneButton = [CCButton buttonWithTitle:@"[PLAY AGAIN]" fontName:@"Verdana-Bold" fontSize:18.0f];
         doneButton.positionType = CCPositionTypeNormalized;
@@ -504,6 +527,8 @@
     [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
 }
+
+
 //Pauses game
 - (void)onPauseClicked:(id)sender
 {
