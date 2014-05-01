@@ -84,7 +84,7 @@
     [self addChild:timeTxt];
     
     //Timer data
-    timeNum=30;
+    timeNum=120;
     theTime = [NSString stringWithFormat:@"%i", timeNum];
     
     //Displays the timer
@@ -459,12 +459,51 @@
             for (GKAchievement *achievementDescription in descriptions) {
                 [achievementDescriptions setObject:achievementDescription forKey:achievementDescription.identifier];
             }
+            if(scoreNum > 50){
             GKAchievementDescription *achievementDescription2 = [achievementDescriptions objectForKey:@"fifty"];
             
             [GKNotificationBanner showBannerWithTitle:achievementDescription2.title message:achievementDescription2.achievedDescription completionHandler:nil];
             //Marks achievement as completed
-            oh = [achievementDescriptions objectForKey:@"fifty"];
+            oh = [[GKAchievement alloc] initWithIdentifier:[achievementDescriptions objectForKey:@"fifty"]];
             oh.percentComplete = 100.0;
+            
+            NSArray* new = [NSArray arrayWithObject:oh];
+            //This is the method I was describing above
+            [GKAchievement reportAchievements:new withCompletionHandler:^(NSError *error) {
+                //Completion code here
+            }];
+            }
+            
+            if(scoreNum > 100){
+                GKAchievementDescription *achievementDescription3 = [achievementDescriptions objectForKey:@"hundred"];
+                
+                [GKNotificationBanner showBannerWithTitle:achievementDescription3.title message:achievementDescription3.achievedDescription completionHandler:nil];
+                //Marks achievement as completed
+                GKAchievement *oh2 = [[GKAchievement alloc] initWithIdentifier:[achievementDescriptions objectForKey:@"hundred"]];
+                oh2.percentComplete = 100.0;
+                
+                NSArray* new = [NSArray arrayWithObject:oh];
+                //This is the method I was describing above
+                [GKAchievement reportAchievements:new withCompletionHandler:^(NSError *error) {
+                    //Completion code here
+                }];
+            }
+            
+            if(scoreNum <= 30){
+                GKAchievementDescription *achievementDescription4 = [achievementDescriptions objectForKey:@"LS2M"];
+                
+                [GKNotificationBanner showBannerWithTitle:achievementDescription4.title message:achievementDescription4.achievedDescription completionHandler:nil];
+                //Marks achievement as completed
+                GKAchievement *oh3 = [[GKAchievement alloc] initWithIdentifier:[achievementDescriptions objectForKey:@"LS2M"]];
+                oh3.percentComplete = 100.0;
+                
+                NSArray* new = [NSArray arrayWithObject:oh3];
+                //This is the method I was describing above
+                [GKAchievement reportAchievements:new withCompletionHandler:^(NSError *error) {
+                    //Completion code here
+                }];
+            }
+            
         }];
         
 
